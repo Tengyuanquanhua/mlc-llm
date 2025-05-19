@@ -1,0 +1,537 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Customize MLC Chat Config &mdash; mlc-llm 0.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/tlcpack_theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+  
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <script type="text/javascript" src="../_static/js/tlcpack_theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Convert Model Weights" href="../compilation/convert_weights.html" />
+    <link rel="prev" title="IDE Integration" href="ide_integration.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    
+<header class="header">
+    <div class="innercontainer">
+      <div class="headerInner d-flex justify-content-between align-items-center">
+          <div class="headerLogo">
+          </div>
+
+          <div id="headMenu" class="headerNav">
+            <button type="button" id="closeHeadMenu" class="navCloseBtn"><img src="../_static/img/close-icon.svg" alt="Close"></button>
+             <ul class="nav">
+                <li class="nav-item">
+                   <a class="nav-link" href=https://llm.mlc.ai/>Home</a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" href=https://github.com/mlc-ai/mlc-llm>Github</a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" href=https://discord.gg/9Xpy2HGBuD>Discord Server</a>
+                </li>
+             </ul>
+               <div class="responsivetlcdropdown">
+                 <button type="button" class="btn-link">
+                   Other Resources
+                 </button>
+                 <ul>
+                     <li>
+                       <a href=https://mlc.ai/>MLC Course</a>
+                     </li>
+                     <li>
+                       <a href=https://blog.mlc.ai/>MLC Blog</a>
+                     </li>
+                     <li>
+                       <a href=https://webllm.mlc.ai/>Web LLM</a>
+                     </li>
+                 </ul>
+               </div>
+          </div>
+            <div class="responsiveMenuIcon">
+              <button type="button" id="menuBtn" class="btn-menu"><img src="../_static/img/menu-icon.svg" alt="Menu Icon"></button>
+            </div>
+
+            <div class="tlcDropdown">
+              <div class="dropdown">
+                <button type="button" class="btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Other Resources
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <ul>
+                     <li>
+                       <a href=https://mlc.ai/>MLC Course</a>
+                     </li>
+                     <li>
+                       <a href=https://blog.mlc.ai/>MLC Blog</a>
+                     </li>
+                     <li>
+                       <a href=https://webllm.mlc.ai/>Web LLM</a>
+                     </li>
+                  </ul>
+                </div>
+              </div>
+          </div>
+       </div>
+    </div>
+ </header>
+ 
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side fixed">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/mlc-logo-with-text-landscape.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+                <div class="version">
+                  0.1.0
+                </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction to MLC LLM</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Build and Deploy Apps</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="webllm.html">WebLLM Javascript SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rest.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_engine.html">Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS Swift SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ide_integration.html">IDE Integration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Customize MLC Chat Config</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#structure-of-mlcchat-configuration">Structure of MLCChat Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#conversation-structure">Conversation Structure</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Compile Models</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../compilation/convert_weights.html">Convert Model Weights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compilation/compile_models.html">Compile Model Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compilation/package_libraries_and_weights.html">Package Libraries and Weights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compilation/define_new_models.html">Define New Model Architectures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compilation/configure_quantization.html">Configure Quantization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Dependency Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/tvm.html">Install TVM Unity Compiler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/mlc_llm.html">Install MLC LLM Python Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/conda.html">Install Conda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/gpu.html">GPU Drivers and SDKs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/emcc.html">Install Wasm Build Environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Microserving API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../microserving/tutorial.html">Implement LLM Cross-engine Orchestration Patterns</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/guideline.html">Community Guideline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../community/faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Privacy</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../privacy.html">MLC Chat App Privacy</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      
+      <nav class="wy-nav-top" aria-label="top navigation" data-toggle="wy-nav-top">
+        
+            <div class="togglemenu">
+
+            </div>
+            <div class="nav-content">
+              <!-- mlc-llm -->
+              Table of Contents
+            </div>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> <span class="br-arrow">></span></li>
+        
+      <li>Customize MLC Chat Config</li>
+    
+    
+      
+      
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/mlc-ai/mlc-llm/edit/main/docs/deploy/mlc_chat_config.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="customize-mlc-chat-config">
+<span id="configure-mlc-chat-json"></span><h1>Customize MLC Chat Config<a class="headerlink" href="#customize-mlc-chat-config" title="Permalink to this heading">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">mlc-chat-config.json</span></code> is required for both compile-time and runtime, hence serving two purposes:</p>
+<ol class="arabic simple">
+<li><p>Specify how we compile a model (shown in <a class="reference internal" href="../compilation/compile_models.html#compile-model-libraries"><span class="std std-ref">Compile Model Libraries</span></a>), and</p></li>
+<li><p>Specify conversation behavior in runtime.</p></li>
+</ol>
+<p><strong>This page focuses on the second purpose.</strong> We explain the components of a chat
+configuration and how to customize them by modifying the file. Additionally,
+the runtimes also provide APIs to optionally override some of the configurations.</p>
+<p>In runtime, this file is stored under the directory of each compiled model
+(e.g. <a class="reference external" href="https://huggingface.co/mlc-ai/mlc-chat-RedPajama-INCITE-Chat-3B-v1-q4f16_1/blob/main/mlc-chat-config.json">RedPajama chat config</a>).</p>
+<section id="structure-of-mlcchat-configuration">
+<span id="struct-mlc-chat-conv"></span><h2>Structure of MLCChat Configuration<a class="headerlink" href="#structure-of-mlcchat-configuration" title="Permalink to this heading">¶</a></h2>
+<p>Below is the <code class="docutils literal notranslate"><span class="pre">mlc-chat-config.json</span></code> file corresponding to Llama2 model:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="c1">// mlc-chat-config.json</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// 1. Metadata used to specify how to compile a model</span>
+<span class="w">  </span><span class="nt">&quot;model_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;llama&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;quantization&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;q4f16_1&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;model_config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;hidden_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4096</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;intermediate_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">11008</span><span class="p">,</span>
+<span class="w">    </span><span class="c1">// more fields here...</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;vocab_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">32000</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;context_window_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4096</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;sliding_window_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;prefill_chunk_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4096</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;tensor_parallel_shards&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+
+<span class="w">  </span><span class="c1">// 2. Tokenizer-related fields</span>
+<span class="w">  </span><span class="nt">&quot;pad_token_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;bos_token_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;eos_token_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;tokenizer_files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;tokenizer.model&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;tokenizer.json&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;tokenizer_config.json&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+
+<span class="w">  </span><span class="c1">// 3. Conversation template related fields</span>
+<span class="w">  </span><span class="nt">&quot;conv_template&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;llama-2&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;system_template&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[INST] &lt;&lt;SYS&gt;&gt;\n{system_message}\n&lt;&lt;/SYS&gt;&gt;\n\n &quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;system_message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;You are a helpful, respectful and honest assistant.&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="c1">// more fields here...</span>
+<span class="w">  </span><span class="p">},</span>
+
+<span class="w">  </span><span class="c1">// 4. Chat related fields that affect runtime behavior</span>
+<span class="w">  </span><span class="nt">&quot;temperature&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;repetition_penalty&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;top_p&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Fields in the first part of <code class="docutils literal notranslate"><span class="pre">mlc-chat-config.json</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">context-window-size</span></code>)
+is only for compile-time. Changing them during runtime may lead to unexpected behavior.</p>
+</div>
+<p><strong>As shown above, the file is divided into three parts. We focus on the third part, which
+can be customized to change the behavior of the model.</strong></p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">conv_template</span></code></dt><dd><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Legacy <code class="docutils literal notranslate"><span class="pre">mlc-chat-config.json</span></code> may specify a string for this field to look up a registered conversation
+template. It will be deprecated in the future. Re-generate config using the latest version of mlc_llm
+to make sure this field is a complete JSON object.</p>
+</div>
+<p>The conversation template that this chat uses. For more information, please refer to <a class="reference internal" href="#struct-conv"><span class="std std-ref">conversation structure</span></a>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">temperature</span></code></dt><dd><p>The temperature applied to logits before sampling. The default value is <code class="docutils literal notranslate"><span class="pre">0.7</span></code>. A higher temperature encourages more diverse outputs, while a lower temperature produces more deterministic outputs.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">repetition_penalty</span></code></dt><dd><p>The repetition penalty controls the likelihood of the model generating repeated texts. The default value is set to <code class="docutils literal notranslate"><span class="pre">1.0</span></code>, indicating that no repetition penalty is applied. Increasing the value reduces the likelihood of repeat text generation. However, setting a high <code class="docutils literal notranslate"><span class="pre">repetition_penalty</span></code> may result in the model generating meaningless texts. The ideal choice of repetition penalty may vary among models.</p>
+<p>For more details on how repetition penalty controls text generation, please check out the <a class="reference external" href="https://arxiv.org/pdf/1909.05858.pdf">CTRL paper</a>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">top_p</span></code></dt><dd><p>This parameter determines the set of tokens from which we sample during decoding. The default value is set to <code class="docutils literal notranslate"><span class="pre">0.95</span></code>. At each step, we select tokens from the minimal set that has a cumulative probability exceeding the <code class="docutils literal notranslate"><span class="pre">top_p</span></code> parameter.</p>
+<p>For additional information on top-p sampling, please refer to this <a class="reference external" href="https://huggingface.co/blog/how-to-generate#top-p-nucleus-sampling">blog post</a>.</p>
+</dd>
+</dl>
+<section id="conversation-structure">
+<span id="struct-conv"></span><h3>Conversation Structure<a class="headerlink" href="#conversation-structure" title="Permalink to this heading">¶</a></h3>
+<p>MLC-LLM provided a set of pre-defined conversation templates, which you can directly use by
+specifying <code class="docutils literal notranslate"><span class="pre">--conv-template</span> <span class="pre">[name]</span></code> when generating config. Below is a list (not complete) of
+supported conversation templates:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">llama-2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mistral_default</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chatml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">phi-2</span></code></p></li>
+<li><p>…</p></li>
+</ul>
+<p>Please refer to <a class="reference external" href="https://github.com/mlc-ai/mlc-llm/blob/main/python/mlc_llm/conversation_template">conversation_template</a> directory for the full list of supported templates and their implementations.</p>
+<p>Below is a generic structure of a JSON conversation configuration (we use vicuna as an example):</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="c1">// mlc-chat-config.json</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="w">  </span><span class="nt">&quot;conv_template&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;llama-2&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;system_template&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[INST] &lt;&lt;SYS&gt;&gt;\n{system_message}\n&lt;&lt;/SYS&gt;&gt;\n\n &quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;system_message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;You are a helpful, respectful and honest assistant.&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;roles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[INST]&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;assistant&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[/INST]&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;tool&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[INST]&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;role_templates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{user_message}&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;assistant&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{assistant_message}&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;tool&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{tool_message}&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;messages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="nt">&quot;seps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot; &quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;role_content_sep&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; &quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;role_empty_sep&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; &quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;stop_str&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;[INST]&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;stop_token_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="mi">2</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;function_string&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;use_function_calling&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">name</span></code></dt><dd><p>Name of the conversation.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">system_template</span></code></dt><dd><p>The system prompt template, it optionally contains the system
+message placeholder, and the placeholder will be replaced with
+the system message below.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">system_message</span></code></dt><dd><p>The content of the system prompt (without the template format).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">system_prefix_token_ids</span></code></dt><dd><p>The system token ids to be prepended at the beginning of tokenized
+generated prompt.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">roles</span></code></dt><dd><p>The conversation roles</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">role_templates</span></code></dt><dd><p>The roles prompt template, it optionally contains the defaults
+message placeholders and will be replaced by actual content</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">messages</span></code></dt><dd><p>The conversation history messages.
+Each message is a pair of strings, denoting “(role, content)”.
+The content can be None.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">seps</span></code></dt><dd><p>An array of strings indicating the separators to be used after a user
+message and a model message respectively.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">role_content_sep</span></code></dt><dd><p>The separator between the role and the content in a message.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">role_empty_sep</span></code></dt><dd><p>The separator between the role and empty contents.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">stop_str</span></code></dt><dd><p>When the <code class="docutils literal notranslate"><span class="pre">stop_str</span></code> is encountered, the model will stop generating output.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">stop_token_ids</span></code></dt><dd><p>A list of token IDs that act as stop tokens.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">function_string</span></code></dt><dd><p>The function calling string.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">use_function_calling</span></code></dt><dd><p>Whether using function calling or not, helps check for output message format in API call.</p>
+</dd>
+</dl>
+<p>Given a conversation template, the corresponding prompt generated out
+from it is in the following format:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;&lt;system&gt;&gt;&lt;&lt;messages[0][0]&gt;&gt;&lt;&lt;role_content_sep&gt;&gt;&lt;&lt;messages[0][1]&gt;&gt;&lt;&lt;seps[0]&gt;&gt;
+          &lt;&lt;messages[1][0]&gt;&gt;&lt;&lt;role_content_sep&gt;&gt;&lt;&lt;messages[1][1]&gt;&gt;&lt;&lt;seps[1]&gt;&gt;
+          ...
+          &lt;&lt;messages[2][0]&gt;&gt;&lt;&lt;role_content_sep&gt;&gt;&lt;&lt;messages[2][1]&gt;&gt;&lt;&lt;seps[0]&gt;&gt;
+          &lt;&lt;roles[1]&gt;&gt;&lt;&lt;role_empty_sep&gt;&gt;
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          
+
+<footer>
+
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../compilation/convert_weights.html" class="btn btn-neutral float-right" title="Convert Model Weights" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ide_integration.html" class="btn btn-neutral float-left" title="IDE Integration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+
+<div id="button" class="backtop"><img src="../_static/img/right.svg" alt="backtop"/> </div>
+<section class="footerSec">
+    <div class="footerHeader">
+      <div class="d-flex align-md-items-center justify-content-between flex-column flex-md-row">
+        <div class="copywrite d-flex align-items-center">
+          <h5 id="copy-right-info">© 2023-2025 MLC LLM</h5>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="footernote"> </div>
+    </div>
+
+</section>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </body>
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

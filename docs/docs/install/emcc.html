@@ -46,7 +46,7 @@
     <script type="text/javascript" src="../_static/js/tlcpack_theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Community Guideline" href="../community/guideline.html" />
+    <link rel="next" title="Implement LLM Cross-engine Orchestration Patterns" href="../microserving/tutorial.html" />
     <link rel="prev" title="GPU Drivers and SDKs" href="gpu.html" /> 
 </head>
 
@@ -166,29 +166,27 @@
             
               <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/project_overview.html">Project Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/mlc_chat_config.html">Configure MLCChat in JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction to MLC LLM</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Build and Deploy Apps</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../deploy/javascript.html">WebLLM and Javascript API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../deploy/rest.html">Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy/webllm.html">WebLLM Javascript SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy/rest.html">REST API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../deploy/cli.html">CLI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../deploy/python.html">Python API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../deploy/ios.html">iOS App and Swift API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../deploy/android.html">Android App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy/python_engine.html">Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy/ios.html">iOS Swift SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy/android.html">Android SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy/ide_integration.html">IDE Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy/mlc_chat_config.html">Customize MLC Chat Config</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Compile Models</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../compilation/convert_weights.html">Convert Weights via MLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compilation/convert_weights.html">Convert Model Weights</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compilation/compile_models.html">Compile Model Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compilation/package_libraries_and_weights.html">Package Libraries and Weights</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compilation/define_new_models.html">Define New Model Architectures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../compilation/configure_quantization.html">🚧 Configure Quantization</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Model Prebuilts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../prebuilt_models.html">Model Prebuilts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prebuilt_models_deprecated.html">Model Prebuilts from Old Flow (Deprecated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compilation/configure_quantization.html">Configure Quantization</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Dependency Installation</span></p>
 <ul class="current">
@@ -198,10 +196,14 @@
 <li class="toctree-l1"><a class="reference internal" href="gpu.html">GPU Drivers and SDKs</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Install Wasm Build Environment</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#step-1-install-emsdk">Step 1: Install EMSDK</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-2-set-tvm-home">Step 2: Set TVM_HOME</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2-set-tvm-source-dir-and-mlc-llm-source-dir">Step 2: Set TVM_SOURCE_DIR and MLC_LLM_SOURCE_DIR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#step-3-prepare-wasm-runtime">Step 3: Prepare Wasm Runtime</a></li>
 </ul>
 </li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Microserving API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../microserving/tutorial.html">Implement LLM Cross-engine Orchestration Patterns</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Community</span></p>
 <ul>
@@ -308,13 +310,26 @@ to install the latest emsdk.</p></li>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>emcc<span class="w"> </span>--version
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We recently found that using the latest <code class="docutils literal notranslate"><span class="pre">emcc</span></code> version may run into issues during runtime. Use
+<code class="docutils literal notranslate"><span class="pre">./emsdk</span> <span class="pre">install</span> <span class="pre">3.1.56</span></code> instead of <code class="docutils literal notranslate"><span class="pre">./emsdk</span> <span class="pre">install</span> <span class="pre">latest</span></code> for now as a workaround.</p>
+<p>The error may look like</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Init error, LinkError: WebAssembly.instantiate(): Import #6 module=&quot;wasi_snapshot_preview1&quot;
+function=&quot;proc_exit&quot;: function import requires a callable
+</pre></div>
+</div>
+</div>
 </section>
-<section id="step-2-set-tvm-home">
-<h2>Step 2: Set TVM_HOME<a class="headerlink" href="#step-2-set-tvm-home" title="Permalink to this heading">¶</a></h2>
+<section id="step-2-set-tvm-source-dir-and-mlc-llm-source-dir">
+<h2>Step 2: Set TVM_SOURCE_DIR and MLC_LLM_SOURCE_DIR<a class="headerlink" href="#step-2-set-tvm-source-dir-and-mlc-llm-source-dir" title="Permalink to this heading">¶</a></h2>
 <p>We need to set a path to a tvm source in order to build tvm runtime.
 Note that you do not need to build tvm unity from the source. The source here is only used to build the web runtime component.
-Set environment variable in your shell startup profile in to point to <code class="docutils literal notranslate"><span class="pre">3rdparty/tvm</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">TVM_HOME</span><span class="o">=</span>/path/to/3rdparty/tvm
+Set environment variable in your shell startup profile in to point to <code class="docutils literal notranslate"><span class="pre">3rdparty/tvm</span></code> (if preferred, you could also
+point to your own TVM address if you installed TVM from source).</p>
+<p>Besides, we also need to set <code class="docutils literal notranslate"><span class="pre">MLC_LLM_SOURCE_DIR</span></code> so that we can locate <code class="docutils literal notranslate"><span class="pre">mlc_wasm_runtime.bc</span></code> when compiling a model library wasm.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">TVM_SOURCE_DIR</span><span class="o">=</span>/path/to/3rdparty/tvm
+<span class="nb">export</span><span class="w"> </span><span class="nv">MLC_LLM_SOURCE_DIR</span><span class="o">=</span>/path/to/mlc-llm
 </pre></div>
 </div>
 </section>
@@ -326,15 +341,15 @@ Set environment variable in your shell startup profile in to point to <code clas
 </pre></div>
 </div>
 <p>Now we can prepare wasm runtime using the script in mlc-llm repo</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./scripts/prep_emcc_deps.sh
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./web/prep_emcc_deps.sh
 </pre></div>
 </div>
 <p>We can then validate the outcome</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt;<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">TVM_HOME</span><span class="si">}</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt;<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">TVM_SOURCE_DIR</span><span class="si">}</span>
 
 /path/set/in/step2
 
-&gt;&gt;&gt;<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span><span class="si">${</span><span class="nv">TVM_HOME</span><span class="si">}</span>/web/dist/wasm/*.bc
+&gt;&gt;&gt;<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span><span class="si">${</span><span class="nv">TVM_SOURCE_DIR</span><span class="si">}</span>/web/dist/wasm/*.bc
 
 tvmjs_support.bc
 wasm_runtime.bc
@@ -354,7 +369,7 @@ webgpu_runtime.bc
 
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../community/guideline.html" class="btn btn-neutral float-right" title="Community Guideline" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../microserving/tutorial.html" class="btn btn-neutral float-right" title="Implement LLM Cross-engine Orchestration Patterns" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="gpu.html" class="btn btn-neutral float-left" title="GPU Drivers and SDKs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -366,7 +381,7 @@ webgpu_runtime.bc
     <div class="footerHeader">
       <div class="d-flex align-md-items-center justify-content-between flex-column flex-md-row">
         <div class="copywrite d-flex align-items-center">
-          <h5 id="copy-right-info">© 2023 MLC LLM</h5>
+          <h5 id="copy-right-info">© 2023-2025 MLC LLM</h5>
         </div>
       </div>
 
